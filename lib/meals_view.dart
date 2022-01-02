@@ -20,7 +20,11 @@ class MealView extends StatelessWidget {
                 List<Meal>? meals = snapshot.data;
                 return ListView(
                   children: meals!
-                      .map((Meal meal) => ListTile(title: Text(meal.name)))
+                      .map(
+                        (Meal meal) => Card(
+                          child: Text(meal.name),
+                        ),
+                      )
                       .toList(),
                 );
               } else {
