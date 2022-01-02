@@ -22,7 +22,16 @@ class MealView extends StatelessWidget {
                   children: meals!
                       .map(
                         (Meal meal) => Card(
-                          child: Text(meal.name),
+                          child: Column(
+                            children: [
+                              Text(meal.name),
+                              ClipRRect(
+                                borderRadius: const BorderRadius.vertical(
+                                    top: Radius.circular(10.0)),
+                                child: Image.network(meal.image),
+                              ),
+                            ],
+                          ),
                         ),
                       )
                       .toList(),
