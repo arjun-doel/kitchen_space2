@@ -12,34 +12,43 @@ class MealView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: FutureBuilder(
-            future: httpService.getMeals(),
-            builder:
-                (BuildContext context, AsyncSnapshot<List<Meal>> snapshot) {
-              if (snapshot.hasData) {
-                List<Meal>? meals = snapshot.data;
-                return ListView(
-                  children: meals!
-                      .map(
-                        (Meal meal) => Card(
-                          child: Column(
-                            children: [
-                              Text(meal.name),
-                              ClipRRect(
-                                borderRadius: const BorderRadius.vertical(
-                                    top: Radius.circular(10.0)),
-                                child: Image.network(meal.image),
+        child: SizedBox(
+          height: 500,
+          child: FutureBuilder(
+              future: httpService.getMeals(),
+              builder:
+                  (BuildContext context, AsyncSnapshot<List<Meal>> snapshot) {
+                if (snapshot.hasData) {
+                  List<Meal>? meals = snapshot.data;
+                  return ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: meals!
+                        .map(
+                          (Meal meal) => SizedBox(
+                            child: Card(
+                              child: Column(
+                                children: [
+                                  Text(meal.name),
+                                  SizedBox(
+                                    width: 300,
+                                    child: ClipRRect(
+                                      borderRadius: const BorderRadius.vertical(
+                                          top: Radius.circular(10.0)),
+                                      child: Image.network(meal.image),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
-                        ),
-                      )
-                      .toList(),
-                );
-              } else {
-                return const Center(child: CircularProgressIndicator());
-              }
-            }),
+                        )
+                        .toList(),
+                  );
+                } else {
+                  return const Center(child: CircularProgressIndicator());
+                }
+              }),
+        ),
       ),
     );
   }
