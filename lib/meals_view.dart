@@ -20,30 +20,15 @@ class MealView extends StatelessWidget {
                   (BuildContext context, AsyncSnapshot<List<Meal>> snapshot) {
                 if (snapshot.hasData) {
                   List<Meal>? meals = snapshot.data;
-                  return ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: meals!
-                        .map(
-                          (Meal meal) => SizedBox(
-                            child: Card(
-                              child: Column(
-                                children: [
-                                  Text(meal.name),
-                                  SizedBox(
-                                    width: 300,
-                                    child: ClipRRect(
-                                      borderRadius: const BorderRadius.vertical(
-                                          top: Radius.circular(10.0)),
-                                      child: Image.network(meal.image),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                  return ListView.builder(
+                      // scrollDirection: Axis.horizontal,
+                      itemCount: meals!.length,
+                      itemBuilder: (BuildContext context, index) => Card(
+                            child: ListTile(
+                              leading: const Icon(Icons.favorite_border),
+                              title: Text(snapshot.data![index].name),
                             ),
-                          ),
-                        )
-                        .toList(),
-                  );
+                          ));
                 } else {
                   return const Center(child: CircularProgressIndicator());
                 }
