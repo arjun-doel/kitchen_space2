@@ -21,8 +21,8 @@ class MealView extends StatelessWidget {
                 if (snapshot.hasData) {
                   List<Meal>? meals = snapshot.data;
                   return ListView.builder(
-                      // scrollDirection: Axis.horizontal,
-                      itemCount: meals!.length,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: meals?.length ?? 0,
                       itemBuilder: (BuildContext context, index) => Card(
                             child: ListTile(
                               leading: const Icon(Icons.favorite_border),
