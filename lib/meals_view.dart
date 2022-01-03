@@ -12,7 +12,10 @@ class MealView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: SizedBox(
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(100),
+          ),
           height: 500,
           child: FutureBuilder(
               future: httpService.getMeals(),
@@ -26,9 +29,21 @@ class MealView extends StatelessWidget {
                       itemBuilder: (BuildContext context, index) => Card(
                             child: SizedBox(
                               width: 300,
-                              child: ListTile(
-                                leading: const Icon(Icons.favorite_border),
-                                title: Text(snapshot.data![index].name),
+                              child: Column(
+                                children: [
+                                  ListTile(
+                                    leading: const Icon(Icons.favorite_border),
+                                    title: Text(snapshot.data![index].name),
+                                  ),
+                                  SizedBox(
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        snapshot.data![index].image,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ));
