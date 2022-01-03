@@ -22,11 +22,14 @@ class MealView extends StatelessWidget {
                   List<Meal>? meals = snapshot.data;
                   return ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: meals?.length ?? 0,
+                      itemCount: meals!.length,
                       itemBuilder: (BuildContext context, index) => Card(
-                            child: ListTile(
-                              leading: const Icon(Icons.favorite_border),
-                              title: Text(snapshot.data![index].name),
+                            child: Container(
+                              width: 150,
+                              child: ListTile(
+                                leading: const Icon(Icons.favorite_border),
+                                title: Text(snapshot.data![index].name),
+                              ),
                             ),
                           ));
                 } else {
