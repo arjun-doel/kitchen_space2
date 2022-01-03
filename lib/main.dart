@@ -8,6 +8,7 @@ class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
 
   final backgroundColor = '#f8edeb';
+  final appBar = '#f28482';
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +18,24 @@ class HomeView extends StatelessWidget {
       home: Scaffold(
         body: MealView(),
         bottomNavigationBar: BottomAppBar(
-          child: Container(
+          color: HexColor(appBar),
+          child: SizedBox(
             height: 40,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: const [
-                Icon(Icons.dinner_dining),
-                Icon(Icons.favorite),
-                Icon(Icons.person),
+                Icon(
+                  Icons.dinner_dining,
+                  color: Colors.white,
+                ),
+                Icon(
+                  Icons.favorite,
+                  color: Colors.white,
+                ),
+                Icon(
+                  Icons.person,
+                  color: Colors.white,
+                ),
               ],
             ),
           ),
