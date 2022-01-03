@@ -53,6 +53,25 @@ class MealView extends StatelessWidget {
                                       ),
                                     ),
                                   ),
+                                  const SizedBox(height: 10),
+                                  Row(
+                                    children: [
+                                      const Padding(
+                                          padding: EdgeInsets.all(8),
+                                          child: Icon(Icons.favorite_outline)),
+                                      Text(snapshot.data![index].name),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      const Padding(
+                                          padding: EdgeInsets.all(8),
+                                          child: Icon(Icons.location_on)),
+                                      Text(snapshot.data![index].location),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 75),
+                                  const Center(child: Icon(Icons.reorder_sharp))
                                 ],
                               ),
                             ),
