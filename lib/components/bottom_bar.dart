@@ -9,33 +9,30 @@ class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
+      //bottom navigation bar on scaffold
       color: HexColor(appBar),
-      child: SizedBox(
-        height: 40,
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 10,
+      shape: const CircularNotchedRectangle(), //shape of notch
+      notchMargin: 5, //notche margin between floating button and bottom appbar
+      child: Row(
+        //children inside bottom appbar
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          IconButton(
+            icon: const Icon(
+              Icons.favorite_outline,
+              color: Colors.white,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
-                Icon(
-                  Icons.dinner_dining,
-                  color: Colors.white,
-                ),
-                Icon(
-                  Icons.favorite,
-                  color: Colors.white,
-                ),
-                Icon(
-                  Icons.person,
-                  color: Colors.white,
-                ),
-              ],
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(
+              Icons.person,
+              color: Colors.white,
             ),
-          ],
-        ),
+            onPressed: () {},
+          ),
+        ],
       ),
     );
   }

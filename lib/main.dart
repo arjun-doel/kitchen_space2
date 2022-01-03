@@ -9,7 +9,7 @@ class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
 
   final backgroundColor = '#f8edeb';
-  final appBar = '#f28482';
+  final searchIcon = '#84a59d';
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +18,15 @@ class HomeView extends StatelessWidget {
       title: 'Kitchen_Space 1',
       home: Scaffold(
         body: MealView(),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: HexColor(searchIcon),
+          onPressed: () {
+            //code to execute on button press
+            print('search');
+          },
+          child: const Icon(Icons.search), //icon inside button
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: const BottomBar(),
       ),
     );
