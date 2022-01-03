@@ -21,20 +21,27 @@ class HomeView extends StatelessWidget {
           color: HexColor(appBar),
           child: SizedBox(
             height: 40,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
-                Icon(
-                  Icons.dinner_dining,
-                  color: Colors.white,
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 10,
                 ),
-                Icon(
-                  Icons.favorite,
-                  color: Colors.white,
-                ),
-                Icon(
-                  Icons.person,
-                  color: Colors.white,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: const [
+                    Icon(
+                      Icons.dinner_dining,
+                      color: Colors.white,
+                    ),
+                    Icon(
+                      Icons.favorite,
+                      color: Colors.white,
+                    ),
+                    Icon(
+                      Icons.person,
+                      color: Colors.white,
+                    ),
+                  ],
                 ),
               ],
             ),
