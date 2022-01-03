@@ -14,7 +14,17 @@ class HomeView extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(scaffoldBackgroundColor: HexColor(backgroundColor)),
       title: 'Kitchen_Space 1',
-      home: MealView(),
+      home: Scaffold(
+        body: MealView(),
+        bottomNavigationBar: BottomAppBar(
+            child: Row(
+          children: const [
+            SizedBox(
+              child: Icon(Icons.person),
+            ),
+          ],
+        )),
+      ),
     );
   }
 }
