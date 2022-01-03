@@ -7,10 +7,12 @@ void main() => runApp(const HomeView());
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
 
+  final backgroundColor = '#f8edeb';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(scaffoldBackgroundColor: HexColor('#f7ede2')),
+      theme: ThemeData(scaffoldBackgroundColor: HexColor(backgroundColor)),
       title: 'Kitchen_Space 1',
       home: MealView(),
     );
