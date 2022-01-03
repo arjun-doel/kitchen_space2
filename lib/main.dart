@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:kitchen_space_2/meals_view.dart';
+import 'package:kitchen_space_2/components/bottom_bar.dart';
+import 'package:kitchen_space_2/components/meals_view.dart';
 
 void main() => runApp(const HomeView());
 
@@ -17,36 +18,7 @@ class HomeView extends StatelessWidget {
       title: 'Kitchen_Space 1',
       home: Scaffold(
         body: MealView(),
-        bottomNavigationBar: BottomAppBar(
-          color: HexColor(appBar),
-          child: SizedBox(
-            height: 40,
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
-                    Icon(
-                      Icons.dinner_dining,
-                      color: Colors.white,
-                    ),
-                    Icon(
-                      Icons.favorite,
-                      color: Colors.white,
-                    ),
-                    Icon(
-                      Icons.person,
-                      color: Colors.white,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
+        bottomNavigationBar: const BottomBar(),
       ),
     );
   }
