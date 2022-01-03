@@ -17,13 +17,18 @@ class HomeView extends StatelessWidget {
       home: Scaffold(
         body: MealView(),
         bottomNavigationBar: BottomAppBar(
+          child: Container(
+            height: 40,
             child: Row(
-          children: const [
-            SizedBox(
-              child: Icon(Icons.person),
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: const [
+                Icon(Icons.dinner_dining),
+                Icon(Icons.favorite),
+                Icon(Icons.person),
+              ],
             ),
-          ],
-        )),
+          ),
+        ),
       ),
     );
   }
