@@ -24,8 +24,8 @@ class MealView extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: meals!.length,
                       itemBuilder: (BuildContext context, index) => Card(
-                            child: Container(
-                              width: 150,
+                            child: SizedBox(
+                              width: 300,
                               child: ListTile(
                                 leading: const Icon(Icons.favorite_border),
                                 title: Text(snapshot.data![index].name),
