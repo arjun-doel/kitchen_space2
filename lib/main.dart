@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:kitchen_space_2/components/bottom_bar.dart';
@@ -21,8 +23,13 @@ class HomeView extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           backgroundColor: HexColor(searchIcon),
           onPressed: () {
-            //code to execute on button press
-            print('search');
+            BackdropFilter(
+              filter: ImageFilter.blur(
+                sigmaX: 5.0,
+                sigmaY: 5.0,
+              ),
+              child: Text('Search'),
+            );
           },
           child: const Icon(Icons.search), //icon inside button
         ),
