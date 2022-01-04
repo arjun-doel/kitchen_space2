@@ -8,9 +8,14 @@ import 'package:kitchen_space_2/components/meals_view.dart';
 
 void main() => runApp(const HomeView());
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
 
+  @override
+  _HomeViewState createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
   final backgroundColor = '#f8edeb';
   final searchIcon = '#84a59d';
 
@@ -24,29 +29,16 @@ class HomeView extends StatelessWidget {
         floatingActionButton: Builder(
           builder: (context) => FloatingActionButton(
             backgroundColor: HexColor(searchIcon),
-            // onPressed: () {
-            //   AwesomeDialog(
-            //     context: context,
-            //     dialogType: DialogType.QUESTION,
-            //     animType: AnimType.SCALE,
-            //     title: 'Dialog Title',
-            //     desc: 'Dialog description here.............',
-            //     btnCancelOnPress: () {},
-            //     btnOkOnPress: () {},
-            //   ).show();
-            // },
             onPressed: () {
-              Blurry.input(
-                title: 'Blurry Code Input',
-                description:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                confirmButtonText: 'Confirm',
-                onConfirmButtonPressed: () {},
-                inputLabel: 'Code',
-                // type: BLURRY_TYPE.info,
-                inputTextController: TextEditingController(),
-                textInputType: TextInputType.number,
-              ).show(context);
+              AwesomeDialog(
+                context: context,
+                dialogType: DialogType.QUESTION,
+                animType: AnimType.SCALE,
+                title: 'Dialog Title',
+                desc: 'Dialog description here.............',
+                btnCancelOnPress: () {},
+                btnOkOnPress: () {},
+              ).show();
             },
             child: const Icon(Icons.search), //icon inside button
           ),
