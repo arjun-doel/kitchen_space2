@@ -16,9 +16,12 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  TextEditingController _textFieldController = TextEditingController();
   final backgroundColor = '#f8edeb';
   final searchIcon = '#84a59d';
 
+  late String codeDialog;
+  late String valueText;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,15 +33,56 @@ class _HomeViewState extends State<HomeView> {
           builder: (context) => FloatingActionButton(
             backgroundColor: HexColor(searchIcon),
             onPressed: () {
-              AwesomeDialog(
-                context: context,
-                dialogType: DialogType.QUESTION,
-                animType: AnimType.SCALE,
-                title: 'Dialog Title',
-                desc: 'Dialog description here.............',
-                btnCancelOnPress: () {},
-                btnOkOnPress: () {},
-              ).show();
+              //   AwesomeDialog(
+              //     context: context,
+              //     dialogType: DialogType.QUESTION,
+              //     animType: AnimType.SCALE,
+              //     title: 'Dialog Title',
+              //     desc: 'Dialog description here.............',
+              //     btnCancelOnPress: () {},
+              //     btnOkOnPress: () {},
+              //   ).show();
+              // },
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text('TextField in Dialog'),
+                      content: TextField(
+                        onChanged: (value) {
+                          setState(() {
+                            valueText = value;
+                          });
+                        },
+                        controller: _textFieldController,
+                        decoration:
+                            InputDecoration(hintText: "Text Field in Dialog"),
+                      ),
+                      actions: <Widget>[
+                        FlatButton(
+                          color: Colors.red,
+                          textColor: Colors.white,
+                          child: Text('CANCEL'),
+                          onPressed: () {
+                            setState(() {
+                              Navigator.pop(context);
+                            });
+                          },
+                        ),
+                        FlatButton(
+                          color: Colors.green,
+                          textColor: Colors.white,
+                          child: Text('OK'),
+                          onPressed: () {
+                            setState(() {
+                              codeDialog = valueText;
+                              Navigator.pop(context);
+                            });
+                          },
+                        ),
+                      ],
+                    );
+                  });
             },
             child: const Icon(Icons.search), //icon inside button
           ),
