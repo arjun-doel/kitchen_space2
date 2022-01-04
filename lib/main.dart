@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:search_choices/search_choices.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:blurry/blurry.dart';
 import 'package:kitchen_space_2/components/bottom_bar.dart';
 import 'package:kitchen_space_2/components/meals_view.dart';
 
@@ -22,16 +24,29 @@ class HomeView extends StatelessWidget {
         floatingActionButton: Builder(
           builder: (context) => FloatingActionButton(
             backgroundColor: HexColor(searchIcon),
+            // onPressed: () {
+            //   AwesomeDialog(
+            //     context: context,
+            //     dialogType: DialogType.QUESTION,
+            //     animType: AnimType.SCALE,
+            //     title: 'Dialog Title',
+            //     desc: 'Dialog description here.............',
+            //     btnCancelOnPress: () {},
+            //     btnOkOnPress: () {},
+            //   ).show();
+            // },
             onPressed: () {
-              AwesomeDialog(
-                context: context,
-                dialogType: DialogType.INFO,
-                animType: AnimType.BOTTOMSLIDE,
-                title: 'Dialog Title',
-                desc: 'Dialog description here.............',
-                btnCancelOnPress: () {},
-                btnOkOnPress: () {},
-              ).show();
+              Blurry.input(
+                title: 'Blurry Code Input',
+                description:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                confirmButtonText: 'Confirm',
+                onConfirmButtonPressed: () {},
+                inputLabel: 'Code',
+                // type: BLURRY_TYPE.info,
+                inputTextController: TextEditingController(),
+                textInputType: TextInputType.number,
+              ).show(context);
             },
             child: const Icon(Icons.search), //icon inside button
           ),

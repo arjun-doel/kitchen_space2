@@ -38,6 +38,8 @@ dependencies:
   hexcolor: ^2.0.5
   flutter_animated_dialog: ^2.0.1
   awesome_dialog: ^2.1.2
+  search_choices: ^2.0.16
+  blurry: ^1.4.0
 
 dev_dependencies:
   flutter_test:
