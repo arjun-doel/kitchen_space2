@@ -22,6 +22,8 @@ class _HomeViewState extends State<HomeView> {
 
   late String codeDialog;
   late String valueText;
+
+  final progress = 1;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -47,7 +49,12 @@ class _HomeViewState extends State<HomeView> {
                   context: context,
                   builder: (context) {
                     return AlertDialog(
-                      title: Text('TextField in Dialog'),
+                      title: Column(children: [
+                        AnimatedIcon(
+                            icon: AnimatedIcons.search_ellipsis,
+                            progress: progress),
+                        Text('TextField in Dialog'),
+                      ]),
                       content: TextField(
                         onChanged: (value) {
                           setState(() {
