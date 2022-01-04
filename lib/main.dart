@@ -26,7 +26,7 @@ class HomeView extends StatelessWidget {
           child: const Icon(Icons.search), //icon inside button
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: const BottomBar(),
+        bottomNavigationBar: BottomBar(),
       ),
     );
   }
