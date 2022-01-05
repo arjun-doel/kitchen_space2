@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:search_choices/search_choices.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:blurry/blurry.dart';
+import 'package:animate_icons/animate_icons.dart';
 import 'package:kitchen_space_2/components/bottom_bar.dart';
 import 'package:kitchen_space_2/components/meals_view.dart';
 
@@ -49,10 +47,29 @@ class _HomeViewState extends State<HomeView> {
                   context: context,
                   builder: (context) {
                     return AlertDialog(
-                      title: Column(children: const [
-                        // AnimatedIcon(
-                        //     icon: AnimatedIcons.search_ellipsis,
-                        //     progress: progress),
+                      title: Column(children: [
+                        AnimateIcons(
+                          startIcon: Icons.add_circle,
+                          endIcon: Icons.add_circle_outline,
+                          size: 100.0,
+                          controller: AnimateIconController(),
+                          // add this tooltip for the start icon
+                          startTooltip: 'Icons.add_circle',
+                          // add this tooltip for the end icon
+                          endTooltip: 'Icons.add_circle_outline',
+                          onStartIconPress: () {
+                            print("Clicked on Add Icon");
+                            return true;
+                          },
+                          onEndIconPress: () {
+                            print("Clicked on Close Icon");
+                            return true;
+                          },
+                          duration: Duration(milliseconds: 500),
+                          startIconColor: Colors.deepPurple,
+                          endIconColor: Colors.deepOrange,
+                          clockwise: false,
+                        ),
                         Text('TextField in Dialog'),
                       ]),
                       content: TextField(
