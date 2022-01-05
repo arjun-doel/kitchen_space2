@@ -49,10 +49,10 @@ class _HomeViewState extends State<HomeView> {
                   context: context,
                   builder: (context) {
                     return AlertDialog(
-                      title: Column(children: [
-                        AnimatedIcon(
-                            icon: AnimatedIcons.search_ellipsis,
-                            progress: progress),
+                      title: Column(children: const [
+                        // AnimatedIcon(
+                        //     icon: AnimatedIcons.search_ellipsis,
+                        //     progress: progress),
                         Text('TextField in Dialog'),
                       ]),
                       content: TextField(
@@ -62,8 +62,8 @@ class _HomeViewState extends State<HomeView> {
                           });
                         },
                         controller: _textFieldController,
-                        decoration:
-                            InputDecoration(hintText: "Text Field in Dialog"),
+                        decoration: const InputDecoration(
+                            hintText: "Text Field in Dialog"),
                       ),
                       actions: <Widget>[
                         FlatButton(
