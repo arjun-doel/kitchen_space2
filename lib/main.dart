@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:animate_icons/animate_icons.dart';
 import 'package:kitchen_space_2/components/bottom_bar.dart';
 import 'package:kitchen_space_2/components/meals_view.dart';
 
@@ -14,7 +13,7 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  TextEditingController _textFieldController = TextEditingController();
+  final TextEditingController _textFieldController = TextEditingController();
   final backgroundColor = '#f8edeb';
   final searchIcon = '#84a59d';
 
@@ -47,31 +46,11 @@ class _HomeViewState extends State<HomeView> {
                   context: context,
                   builder: (context) {
                     return AlertDialog(
-                      title: Column(children: [
-                        AnimateIcons(
-                          startIcon: Icons.add_circle,
-                          endIcon: Icons.add_circle_outline,
-                          size: 100.0,
-                          controller: AnimateIconController(),
-                          // add this tooltip for the start icon
-                          startTooltip: 'Icons.add_circle',
-                          // add this tooltip for the end icon
-                          endTooltip: 'Icons.add_circle_outline',
-                          onStartIconPress: () {
-                            print("Clicked on Add Icon");
-                            return true;
-                          },
-                          onEndIconPress: () {
-                            print("Clicked on Close Icon");
-                            return true;
-                          },
-                          duration: Duration(milliseconds: 500),
-                          startIconColor: Colors.deepPurple,
-                          endIconColor: Colors.deepOrange,
-                          clockwise: false,
-                        ),
-                        Text('TextField in Dialog'),
-                      ]),
+                      title: Column(
+                        children: const [
+                          Icon(Icons.search),
+                        ],
+                      ),
                       content: TextField(
                         onChanged: (value) {
                           setState(() {
@@ -79,8 +58,8 @@ class _HomeViewState extends State<HomeView> {
                           });
                         },
                         controller: _textFieldController,
-                        decoration: const InputDecoration(
-                            hintText: "Text Field in Dialog"),
+                        decoration:
+                            const InputDecoration(hintText: "Enter a dish"),
                       ),
                       actions: <Widget>[
                         FlatButton(
