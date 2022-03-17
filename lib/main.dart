@@ -25,7 +25,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(scaffoldBackgroundColor: HexColor(backgroundColor)),
-      title: 'Kitchen_Space 1',
+      title: 'Kitchen_Space 2',
       home: Scaffold(
         body: MealView(),
         floatingActionButton: Builder(
